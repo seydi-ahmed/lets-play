@@ -51,3 +51,4 @@ src/main/java/com/letsplay
 - sudo docker run -d -p 27017:27017 --name mongodb mongo:6.0 (Télécharge et exécute MongoDB avec Docker)
 - sudo docker ps (vérifier que mongo est en cours d'exécution)
 - spring.data.mongodb.uri=mongodb://localhost:27017/letsplay (Configure Spring Boot pour utiliser MongoDB dans Docker)
+- mongosh --host localhost --port 27017
