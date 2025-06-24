@@ -1,4 +1,4 @@
 git add .
-git commit -m "API Basique terminé"
+git commit -m "model prét"
 git push gitea
 git push github

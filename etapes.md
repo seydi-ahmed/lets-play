@@ -64,7 +64,7 @@
 ---
 
 ## 🧪 Étape 10 – Tester l’API
-- Utilise Postman ou Insomnia pour:
+- Utilise Postman pour:
 - Créer un utilisateur
 - Te connecter et obtenir un token
 - Créer un produit

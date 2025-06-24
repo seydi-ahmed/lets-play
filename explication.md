@@ -16,7 +16,15 @@
 - elle gére les requetes HTTP
 - toutes les méthodes retournent automatiquement des réponses JSON (comportement de @Controller + @ResponseBody)
 10. @RequestMapping("/api/ping"): définit les chemins de base de tous les endpoints (routes)
-11. 
+11. @Bean: permet de créer de beans spring -->
+- objet Java géré automatiquement par le conteneur Spring
+12. @NotBlank: ne pas être vide
+13. @Override: redéfinit une méthode héritée de la classe parent
+14. @Data (annotation Lombok): regroupe automatiquement plusieurs fonctionnalités utiles
+- exemple: pas besoin d'écrire des getters/setters/toString()/equals()/hashCode()
+15. @NoArgsConstructor: génére automatiquement le constructeur par défaut
+16. @AllArgsConstructor: génére automatiquement un constructeur avec tous les arguments de la classe
+17. 
 
 ---
 
