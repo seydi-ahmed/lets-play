@@ -24,7 +24,16 @@
 - exemple: pas besoin d'écrire des getters/setters/toString()/equals()/hashCode()
 15. @NoArgsConstructor: génére automatiquement le constructeur par défaut
 16. @AllArgsConstructor: génére automatiquement un constructeur avec tous les arguments de la classe
-17. 
+17. MongoRepository<User, String>
+- répertoire fourni par Spring Data Mongo
+- permet de CRUD sur la collection (table) MongoDB qui correspond à la classe User
+- <User, String>
+    - User correspond à l'entité (model)
+    - String correspond au type de la clé primaire
+18. @Service: identifie une classe comme un service métier
+- cela permet à spring de gérer son cycle de vie et de l'injecter automatiquement dans d'autres classes (comme dans les controllers)
+19. Le contrôleur appelle les services pour accéder aux données, au lieu d’accéder directement au repository.
+20. 
 
 ---
 

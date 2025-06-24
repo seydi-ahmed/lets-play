@@ -1,4 +1,4 @@
 git add .
-git commit -m "repertoire prét"
+git commit -m "UserRepository"
 git push gitea
 git push github
