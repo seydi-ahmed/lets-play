@@ -11,6 +11,12 @@
 6. Spring Configuration Processor: pour l'autocomplétion dans les fichiers de configuration
 7. Lombok: générer les getters/setters automatiquement
 8. @Id: annotation de Spring Data qui marque le champ id comme identifiant unique du document MongoDB.
+9. @RestController:
+- indique que la classe est un controller REST
+- elle gére les requetes HTTP
+- toutes les méthodes retournent automatiquement des réponses JSON (comportement de @Controller + @ResponseBody)
+10. @RequestMapping("/api/ping"): définit les chemins de base de tous les endpoints (routes)
+11. 
 
 ---
 
