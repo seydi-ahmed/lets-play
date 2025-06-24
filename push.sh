@@ -1,4 +1,4 @@
 git add .
-git commit -m "Les étapes du projet"
+git commit -m "pingRepository"
 git push gitea
 git push github
