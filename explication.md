@@ -33,7 +33,8 @@
 18. @Service: identifie une classe comme un service métier
 - cela permet à spring de gérer son cycle de vie et de l'injecter automatiquement dans d'autres classes (comme dans les controllers)
 19. Le contrôleur appelle les services pour accéder aux données, au lieu d’accéder directement au repository.
-20. 
+20. @Autowired: demande à spring d'injecter automatiquement une instance ProductRepository via le constructeur
+21. 
 
 ---
 
