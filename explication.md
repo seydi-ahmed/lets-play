@@ -34,7 +34,11 @@
 - cela permet à spring de gérer son cycle de vie et de l'injecter automatiquement dans d'autres classes (comme dans les controllers)
 19. Le contrôleur appelle les services pour accéder aux données, au lieu d’accéder directement au repository.
 20. @Autowired: demande à spring d'injecter automatiquement une instance ProductRepository via le constructeur
-21. 
+21. @Valid: déclanche la validation automatique
+22. ResponseEntity: permet d'envoyer une réponse HTTP compléte (statut + corps)
+23. Optional: permet de gérer la présence ou l'absence d'un Objet
+24. @PathVariable: lit l'id de l'url
+25. 
 
 ---
 

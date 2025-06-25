@@ -1,4 +1,4 @@
 git add .
-git commit -m "ProductRepository"
+git commit -m "ProductController"
 git push gitea
 git push github
