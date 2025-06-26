@@ -72,3 +72,16 @@
 - Tester les accès selon les rôles
 - Accéder à /products sans être authentifié
 - Forcer des erreurs pour tester la gestion des exceptions
+
+---
+
+
+ce qui reste:
+- inscription
+- login
+
+À savoir:
+1)  les users qui ont comme role "ROLE_ADMIN" ont le droit de tout faire
+- CRUD avec tous les "produits" et "users"
+2) les users qui ont comme role "ROLE_USER" ont le droit de tout faire peuvent tout faire avec leurs produits.
+ils 

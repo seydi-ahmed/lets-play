@@ -53,4 +53,9 @@ public class ProductService {
     public void deleteProduct(String id) {
         productRepository.deleteById(id);
     }
+
+    // 🔧 Supprimer un produit
+    public void deleteAllProducts() {
+        productRepository.deleteAll();
+    }
 }

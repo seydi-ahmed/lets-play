@@ -48,6 +48,13 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    // 🔸 Supprimer les utilisateurs
+    @DeleteMapping
+    public ResponseEntity<Void> deleteAllUsers() {
+        userService.deleteAllUsers();
+        return ResponseEntity.noContent().build();
+    }
+
     // 🔸 (optionnel) Récupérer un utilisateur par email — peut être utile pour debug ou login test
     @GetMapping("/email/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {

@@ -37,6 +37,11 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    // Méthode pour supprimer les utilisateurs
+    public void deleteAllUsers() {
+        userRepository.deleteAll();
+    }
+
     // Recherche utilisateur par email (utile pour l’authentification)
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);

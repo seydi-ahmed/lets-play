@@ -26,8 +26,8 @@ public class User {
     @NotBlank(message = "Le mot de passe est obligatoire")
     private String password;
 
-    @NotBlank(message = "Le rôle est obligatoire")
-    private String role;
+    @NotNull(message = "Le rôle est obligatoire")
+    private Role role;
 
     @Override
     public String toString() {
