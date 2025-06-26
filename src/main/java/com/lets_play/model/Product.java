@@ -2,15 +2,16 @@ package com.lets_play.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Document(collection = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "products")
 public class Product {
 
     @Id
@@ -25,17 +26,16 @@ public class Product {
     @Min(value = 0, message = "Le prix ne peut pas être négatif")
     private Double price;
 
-    @NotBlank(message = "L'identifiant de l'utilisateur est obligatoire")
-    private String userId; // référence à l'utilisateur propriétaire
+    private String userId;
 
     @Override
     public String toString() {
         return "Product{" +
-               "id='" + id + '\'' +
-               ", name='" + name + '\'' +
-               ", description='" + description + '\'' +
-               ", price=" + price +
-               ", userId='" + userId + '\'' +
-               '}';
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", userId='" + userId + '\'' +
+                '}';
     }
 }
