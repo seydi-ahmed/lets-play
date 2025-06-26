@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,16 +24,14 @@ public class AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    // 🔐 Inscription
     public AuthResponse register(@Valid RegisterRequest request) {
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("Email déjà utilisé");
         }
 
-        // 👇 Détermination du rôle
         Role userRole;
         if (request.getRole() == null || request.getRole().isBlank()) {
-            userRole = Role.ROLE_USER; // valeur par défaut
+            userRole = Role.ROLE_USER;
         } else {
             try {
                 userRole = Role.valueOf(request.getRole().toUpperCase());
@@ -48,7 +47,7 @@ public class AuthService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(userRole); // 👈 ici on utilise le rôle validé
+        user.setRole(userRole);
 
         userRepository.save(user);
 
@@ -56,7 +55,6 @@ public class AuthService {
         return new AuthResponse(token);
     }
 
-    // 🔐 Connexion
     public AuthResponse login(@Valid AuthRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
@@ -66,5 +64,12 @@ public class AuthService {
 
         String token = jwtService.generateToken(user);
         return new AuthResponse(token);
+    }
+
+    // ✅ Méthode utilisée pour récupérer l’utilisateur courant
+    public User getCurrentUser() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
     }
 }

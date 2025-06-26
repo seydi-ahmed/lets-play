@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-Login done
+reste la sécurité
 "
 git push gitea
 git push github

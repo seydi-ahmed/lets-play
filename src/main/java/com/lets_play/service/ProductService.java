@@ -1,61 +1,69 @@
 package com.lets_play.service;
 
 import com.lets_play.model.Product;
+import com.lets_play.model.User;
 import com.lets_play.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-@Service // 📌 Indique que cette classe est un "Service" Spring (composant métier injectable)
+@Service
+@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final AuthService authService;
 
-    @Autowired // 📌 Injection automatique de la dépendance via le constructeur
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
-
-    // 🔧 Créer un produit
     public Product createProduct(Product product) {
+        User currentUser = authService.getCurrentUser();
+        product.setUserId(currentUser.getId());
         return productRepository.save(product);
     }
 
-    // 🔧 Lire un produit par son ID
-    public Optional<Product> getProductById(String id) {
-        return productRepository.findById(id);
-    }
-
-    // 🔧 Lire tous les produits
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // 🔧 Lire les produits d’un utilisateur spécifique
-    public List<Product> getProductsByUserId(String userId) {
-        return productRepository.findByUserId(userId);
+    public List<Product> getProductsForCurrentUser() {
+        User currentUser = authService.getCurrentUser();
+        return productRepository.findByUserId(currentUser.getId());
     }
 
-    // 🔧 Mettre à jour un produit
-    public Optional<Product> updateProduct(String id, Product updatedProduct) {
-        return productRepository.findById(id).map(existingProduct -> {
-            existingProduct.setName(updatedProduct.getName());
-            existingProduct.setDescription(updatedProduct.getDescription());
-            existingProduct.setPrice(updatedProduct.getPrice());
-            existingProduct.setUserId(updatedProduct.getUserId());
-            return productRepository.save(existingProduct);
-        });
+    public Product getProductByIdWithOwnershipCheck(String id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
+
+        User currentUser = authService.getCurrentUser();
+
+        if (isAdmin(currentUser) || product.getUserId().equals(currentUser.getId())) {
+            return product;
+        }
+
+        throw new AccessDeniedException("Accès refusé");
     }
 
-    // 🔧 Supprimer un produit
-    public void deleteProduct(String id) {
-        productRepository.deleteById(id);
+    public Product updateProductWithOwnershipCheck(String id, Product updatedProduct) {
+        Product existing = getProductByIdWithOwnershipCheck(id);
+
+        existing.setName(updatedProduct.getName());
+        existing.setDescription(updatedProduct.getDescription());
+        existing.setPrice(updatedProduct.getPrice());
+
+        return productRepository.save(existing);
     }
 
-    // 🔧 Supprimer un produit
+    public void deleteProductWithOwnershipCheck(String id) {
+        Product existing = getProductByIdWithOwnershipCheck(id);
+        productRepository.delete(existing);
+    }
+
     public void deleteAllProducts() {
         productRepository.deleteAll();
+    }
+
+    private boolean isAdmin(User user) {
+        return user.getRole().name().equals("ROLE_ADMIN");
     }
 }
