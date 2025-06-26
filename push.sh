@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-Inscription done
+Login done
 "
 git push gitea
 git push github
