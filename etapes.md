@@ -76,12 +76,27 @@
 ---
 
 
-ce qui reste:
-- inscription
-- login
+## ✅ Étapes à suivre pour Authentification
+- Nous allons mettre en place les composants suivants:
 
-À savoir:
-1)  les users qui ont comme role "ROLE_ADMIN" ont le droit de tout faire
-- CRUD avec tous les "produits" et "users"
-2) les users qui ont comme role "ROLE_USER" ont le droit de tout faire peuvent tout faire avec leurs produits.
-ils 
+1. 📦 Créer des modèles auxiliaires (DTO)
+- RegisterRequest.java – pour l’inscription
+- AuthRequest.java – pour le login
+- AuthResponse.java – pour le retour du token
+
+2. 🛠️ Créer un service AuthService.java
+- Il s’occupe d’enregistrer un nouvel utilisateur avec rôle ROLE_USER par défaut
+- Et de générer un JWT au moment du login
+
+3. 🔐 Créer JwtService.java pour la gestion du token
+- Génération du token
+- Validation
+
+4. 🎮 Créer un contrôleur AuthController.java
+- Deux endpoints:
+    - POST /auth/register
+    - POST /auth/login
+
+5. 🛡️ Configurer Spring Security (SecurityConfig.java)
+- Permettre /auth/** sans être connecté
+- Sécuriser /api/** selon le rôle

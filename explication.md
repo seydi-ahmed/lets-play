@@ -38,7 +38,13 @@
 22. ResponseEntity: permet d'envoyer une réponse HTTP compléte (statut + corps)
 23. Optional: permet de gérer la présence ou l'absence d'un Objet
 24. @PathVariable: lit l'id de l'url
-25. 
+25. BCryptPasswordEncoder: utiliser l'algorithme BCrypt pour encoder les mots de passes
+26. @SpringBootApplication: @Configuration + @EnableAutoConfiguration + @ComponentScan --> point d'entrée pricipale de notre application Spring Boot
+27. @Configuration: contient les Bean Spring
+28. @EnableAutoConfiguration: active la configuration automatique de Spring Boot
+29. @ComponentScan: recherche les composants dans le package et sous package
+30. CommandLineRunner: lorsqu'on veut exécuter une commande juste aprés le démarrage de notre application
+31. 
 
 ---
 
