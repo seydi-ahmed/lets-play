@@ -44,7 +44,13 @@
 28. @EnableAutoConfiguration: active la configuration automatique de Spring Boot
 29. @ComponentScan: recherche les composants dans le package et sous package
 30. CommandLineRunner: lorsqu'on veut exécuter une commande juste aprés le démarrage de notre application
-31. 
+31. jakarta.validation: utiliser pour valider les entrées d'utilisateurs
+32. @NoArgsConstructor: génére le constructeur par défaut
+33. @AllArgsConstructor: génére un contructeur avec initialisations
+34. @RequiredArgsConstructor: génére un constructeur avec tous les champs "final" injectés
+35. jwtService: crée un token pour l'utilisateur
+36. authenticationManager: vérifie si l'email + Mot de passe sont valides
+37. 
 
 ---
 

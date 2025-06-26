@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-reste l'authentification
+Inscription done
 "
 git push gitea
 git push github
