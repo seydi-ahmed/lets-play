@@ -5,6 +5,7 @@ import com.lets_play.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
+@PreAuthorize("hasRole('ROLE_ADMIN')") // 👈 Protection globale
 public class UserController {
 
     private final UserService userService;

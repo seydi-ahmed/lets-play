@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "cd3aacca-aff5-4bb0-be60-48fce2ef3883",
+		"name": "Lets-Play",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43921754"
+	},
+	"item": [
+		{
+			"name": "Inscription",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"juste\",\n  \"email\": \"boss@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_ADMIN\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"boss@example.com\",\n  \"password\": \"password123\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Création_Produits",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"fermé plus\",\n  \"description\": \"Shoes fermé plus\",\n  \"price\": 19.99\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir_Produits",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir_Ses_Produit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbmlzdHJhdGV1ckBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzUwOTc5NzA3LCJleHAiOjE3NTEwNjYxMDd9.qTe6rYDzm1j_KxrBzM81E1-RiUdaeAfCWB5WiK7jb6o",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/products/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier_Un_Produit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"fermé 3 modifié\",\n        \"description\": \"Shoes fermé 3 modifié\",\n        \"price\": 19.99\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products/685ddcb5fecddc289f435db1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"685ddcb5fecddc289f435db1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer_Un_Produit",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/products/685ddcb5fecddc289f435db1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"685ddcb5fecddc289f435db1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer_Les_Produits NO",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": \"68581b2dbbaaf72d8a969250\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Créer_User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Test test\",\n  \"email\": \"testsabzlrjfnzrc@example.com\",\n  \"password\": \"barry123\",\n  \"role\": \"ROLE_ADMIN\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir_Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir_Un_User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/685de062fecddc289f435db9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"685de062fecddc289f435db9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier_Un_User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"685de062fecddc289f435db9\",\n    \"name\": \"Test test modifié\",\n    \"email\": \"teszrc@example.com\",\n    \"password\": \"barry123\",\n    \"role\": \"ROLE_ADMIN\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer_Un_User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/685de062fecddc289f435db9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"685de062fecddc289f435db9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer_Les_Users",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
