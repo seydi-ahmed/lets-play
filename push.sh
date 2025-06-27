@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-User fonctionnels à 100% avec admin
+README done
 "
 git push gitea
 git push github
