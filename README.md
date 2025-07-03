@@ -51,8 +51,8 @@ cd lets-play
 ```
 
 2. Lancer MongoDB:
-- Assurez-vous que MongoDB est en cours d'exécution localement (port par défaut : 27017) --> sudo systemctl status mongod
-- Démarrer MongoDB --> sudo systemctl start mongod
+- Assurez-vous que MongoDB est en cours d'exécution localement (port par défaut : 27017) --> ```sudo systemctl status mongod```
+- Démarrer MongoDB --> ```sudo systemctl start mongod```
 
 3. Lancer le projet
 ```

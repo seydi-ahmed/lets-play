@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-Vérifier et/ou démarrer MongoDB
+encoder le mot de passe au moment de l'enregistrement
 "
 git push gitea
 git push github
