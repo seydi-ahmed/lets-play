@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-README done
+Vérifier et/ou démarrer MongoDB
 "
 git push gitea
 git push github
