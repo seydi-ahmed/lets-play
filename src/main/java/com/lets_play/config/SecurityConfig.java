@@ -1,5 +1,6 @@
 package com.lets_play.config;
 
+import com.lets_play.security.CustomAccessDeniedHandler;
 import com.lets_play.security.JwtAuthenticationFilter;
 import com.lets_play.service.CustomUserDetailsService;
 
@@ -26,6 +27,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter; // Ton filtre JWT
     private final CustomUserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
+    private final CustomAccessDeniedHandler accessDeniedHandler;
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -44,22 +46,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Désactive CSRF, utile pour API REST
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll() // Autorise les endpoints d’authentification
-                        .anyRequest().authenticated() // Les autres endpoints nécessitent une authentification
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/api/products").permitAll()
+                        .anyRequest().authenticated())
+                .exceptionHandling(exception -> exception
+                        .accessDeniedHandler(accessDeniedHandler) // 🧩 AJOUT ICI
                 )
                 .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Pas de session, on utilise JWT
-                )
-                .authenticationProvider(authenticationProvider()) // Ton provider
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); // Filtre JWT
-                                                                                                       // avant
-                                                                                                       // l’authentification
-                                                                                                       // standard
-
-        // On ne configure pas httpBasic ici, car tu utilises JWT
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
 }

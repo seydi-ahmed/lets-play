@@ -27,15 +27,4 @@ public class Product {
     private Double price;
 
     private String userId;
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", userId='" + userId + '\'' +
-                '}';
-    }
 }

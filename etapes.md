@@ -100,3 +100,5 @@
 5. 🛡️ Configurer Spring Security (SecurityConfig.java)
 - Permettre /auth/** sans être connecté
 - Sécuriser /api/** selon le rôle
+
+- la page produit doit etre vu par tout le monde meme sans authentification
