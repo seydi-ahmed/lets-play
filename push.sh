@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-Vérification compléte avec Postaman
+HTTP --> HTTPS
 "
 git push gitea
 git push github
