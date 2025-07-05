@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-1e tour avec Postaman validé
+Vérification compléte avec Postaman
 "
 git push gitea
 git push github
