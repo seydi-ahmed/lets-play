@@ -92,7 +92,6 @@ Authorization: Bearer <JWT_TOKEN>
 | POST    | `/api/products`      | USER, ADMIN   | Créer un produit                           |
 | GET     | `/api/products/my`   | USER, ADMIN   | Voir ses propres produits                  |
 | GET     | `/api/products`      | ADMIN         | Voir tous les produits                     |
-| GET     | `/api/products/{id}` | USER\*, ADMIN | Voir un produit (si propriétaire ou admin) |
 | PUT     | `/api/products/{id}` | USER\*, ADMIN | Modifier un produit                        |
 | DELETE  | `/api/products/{id}` | USER\*, ADMIN | Supprimer un produit                       |
 | DELETE  | `/api/products`      | ADMIN         | Supprimer tous les produits                |
@@ -107,7 +106,8 @@ Authorization: Bearer <JWT_TOKEN>
 | GET     | `/api/users`               | Voir tous les utilisateurs      |
 | GET     | `/api/users/{id}`          | Voir un utilisateur par ID      |
 | GET     | `/api/users/email/{email}` | Rechercher par email            |
-| POST    | `/api/users`               | Créer / mettre à jour un user   |
+| POST    | `/api/users`               | Créer un user                   |
+| PUT     | `/api/users`               | mettre à jour un user           |
 | DELETE  | `/api/users/{id}`          | Supprimer un utilisateur        |
 | DELETE  | `/api/users`               | Supprimer tous les utilisateurs |
 

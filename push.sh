@@ -1,6 +1,6 @@
 git add .
 git commit -m "
-HTTP --> HTTPS
+Complet
 "
 git push gitea
 git push github

@@ -9,6 +9,9 @@
 		{
 			"name": "Inscription",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -19,7 +22,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"juste\",\n  \"email\": \"boss@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_ADMIN\"\n}\n",
+					"raw": "{\n  \"name\": \"joueur avec sécurité\",\n  \"email\": \"secure@letsplay.com\",\n  \"password\": \"abcuser2\",\n  \"role\": \"ROLE_ADMIN\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -27,12 +30,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/auth/register",
-					"protocol": "http",
+					"raw": "https://localhost:8443/auth/register",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"auth",
 						"register"
@@ -54,7 +57,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"email\": \"boss@example.com\",\n  \"password\": \"password123\"\n}\n",
+					"raw": "{\n  \"email\": \"secure@letsplay.com\",\n  \"password\": \"abcuser2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,12 +65,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/auth/login",
-					"protocol": "http",
+					"raw": "https://localhost:8443/auth/login",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"auth",
 						"login"
@@ -79,11 +82,14 @@
 		{
 			"name": "Création_Produits",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVAbGV0c3BsYXkuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTc1MTcyNjc4OSwiZXhwIjoxNzUxODEzMTg5fQ.cg5s9kv8j1qrYdIdgn6uNHZRv6f5rGyacOfNf7k31GE",
 						"type": "text"
 					},
 					{
@@ -94,7 +100,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"fermé plus\",\n  \"description\": \"Shoes fermé plus\",\n  \"price\": 19.99\n}\n",
+					"raw": "{\n  \"name\": \"produit sécurisé\",\n  \"description\": \"un truc banal pour test\",\n  \"price\": 56.99\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -102,12 +108,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/products",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"products"
@@ -120,24 +126,17 @@
 			"name": "Voir_Produits",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/products",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"products"
@@ -154,7 +153,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cmVAbGV0c3BsYXkuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTc1MTcyNjc4OSwiZXhwIjoxNzUxODEzMTg5fQ.cg5s9kv8j1qrYdIdgn6uNHZRv6f5rGyacOfNf7k31GE",
 							"type": "string"
 						}
 					]
@@ -162,25 +161,25 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbmlzdHJhdGV1ckBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzUwOTc5NzA3LCJleHAiOjE3NTEwNjYxMDd9.qTe6rYDzm1j_KxrBzM81E1-RiUdaeAfCWB5WiK7jb6o",
+						"key": "",
+						"value": "",
 						"type": "text",
 						"disabled": true
 					},
 					{
-						"key": "Content-Type",
-						"value": "application/json",
+						"key": "",
+						"value": "",
 						"type": "text",
 						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/api/products/my",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/products/my",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"products",
@@ -202,13 +201,13 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzIzMjU2LCJleHAiOjE3NTE4MDk2NTZ9.fSKu6R9NZlKkym9AgPy3_T22VxSN4Ji9hwBeXtH1m-Q",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\n        \"name\": \"fermé 3 modifié\",\n        \"description\": \"Shoes fermé 3 modifié\",\n        \"price\": 19.99\n    }",
+					"raw": "    {\n        \"id\": \"idPourTest\",\n        \"name\": \"abc user modifié\",\n        \"description\": \"un truc banal pour test\",\n        \"price\": 56.99,\n        \"userId\": \"68692cdc559652c8e7cdb9c1\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -216,16 +215,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/products/685ddcb5fecddc289f435db1",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/products/68692d4c559652c8e7cdb9c5",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"products",
-						"685ddcb5fecddc289f435db1"
+						"68692d4c559652c8e7cdb9c5"
 					]
 				}
 			},
@@ -240,55 +239,45 @@
 				"method": "DELETE",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text",
-						"disabled": true
-					},
-					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzIzMjU2LCJleHAiOjE3NTE4MDk2NTZ9.fSKu6R9NZlKkym9AgPy3_T22VxSN4Ji9hwBeXtH1m-Q",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/api/products/685ddcb5fecddc289f435db1",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/products/68692d4c559652c8e7cdb9c5",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"products",
-						"685ddcb5fecddc289f435db1"
+						"68692d4c559652c8e7cdb9c5"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Supprimer_Les_Produits NO",
+			"name": "Supprimer_Les_Produits",
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdXN0ZUBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTA5ODE3NjMsImV4cCI6MTc1MTA2ODE2M30._RWbt7fLanLreiv-8HAuQeYySGv_HHwOkWp-Zk2nccQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzIzMjU2LCJleHAiOjE3NTE4MDk2NTZ9.fSKu6R9NZlKkym9AgPy3_T22VxSN4Ji9hwBeXtH1m-Q",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\n        \"id\": \"68581b2dbbaaf72d8a969250\"\n    }"
-				},
 				"url": {
-					"raw": "http://localhost:8080/api/products",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"products"
@@ -300,6 +289,9 @@
 		{
 			"name": "Créer_User",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -309,21 +301,21 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW91ZkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTcyNDc2MSwiZXhwIjoxNzUxODExMTYxfQ.zfdZBjKGhCOFVIuLvXiWhuHQ5WN_y17ZVsq-Vn-x9Rw",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"Test test\",\n  \"email\": \"testsabzlrjfnzrc@example.com\",\n  \"password\": \"barry123\",\n  \"role\": \"ROLE_ADMIN\"\n}\n"
+					"raw": "{\n  \"name\": \"diouf 3\",\n  \"email\": \"diouf3@letsplay.com\",\n  \"password\": \"diouf123\",\n  \"role\": \"ROLE_ADMIN\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/users",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/users",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"users"
@@ -334,16 +326,13 @@
 		},
 		{
 			"name": "Voir_Users",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW91ZkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTcyNDc2MSwiZXhwIjoxNzUxODExMTYxfQ.zfdZBjKGhCOFVIuLvXiWhuHQ5WN_y17ZVsq-Vn-x9Rw",
 							"type": "string"
 						}
 					]
@@ -357,17 +346,13 @@
 						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
-				},
 				"url": {
-					"raw": "http://localhost:8080/api/users",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/users",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"users"
@@ -378,16 +363,13 @@
 		},
 		{
 			"name": "Voir_Un_User",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzIzMjU2LCJleHAiOjE3NTE4MDk2NTZ9.fSKu6R9NZlKkym9AgPy3_T22VxSN4Ji9hwBeXtH1m-Q",
 							"type": "string"
 						}
 					]
@@ -395,27 +377,23 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
+						"key": "",
+						"value": "",
 						"type": "text",
 						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
-				},
 				"url": {
-					"raw": "http://localhost:8080/api/users/685de062fecddc289f435db9",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/users/68692cdc559652c8e7cdb9c1",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"users",
-						"685de062fecddc289f435db9"
+						"68692cdc559652c8e7cdb9c1"
 					]
 				}
 			},
@@ -424,30 +402,35 @@
 		{
 			"name": "Modifier_Un_User",
 			"request": {
-				"method": "POST",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzIzOTgwLCJleHAiOjE3NTE4MTAzODB9.N1whZJlK4osfZFQ8vGIrV_LCqVBu9mWd3rdwztSVsbs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
-						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"685de062fecddc289f435db9\",\n    \"name\": \"Test test modifié\",\n    \"email\": \"teszrc@example.com\",\n    \"password\": \"barry123\",\n    \"role\": \"ROLE_ADMIN\"\n}"
+					"raw": "{\n    \"id\": \"68692cdc559652c8e7cdb9c1\",\n    \"name\": \"erfzrizro\",\n    \"email\": \"pathé3@letsplay.com\",\n    \"password\": \"ok123456\",\n    \"role\": \"ROLE_USER\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/users",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/users",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"users"
@@ -468,7 +451,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzI0NDgyLCJleHAiOjE3NTE4MTA4ODJ9.Jxz4ySYLMltw4Y0crKVW-xvEtBseD-vYGCvttPnn2qY",
 						"type": "text"
 					}
 				],
@@ -477,16 +460,16 @@
 					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/users/685de062fecddc289f435db9",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/users/6866edba32bd5d832893f685",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"users",
-						"685de062fecddc289f435db9"
+						"6866edba32bd5d832893f685"
 					]
 				}
 			},
@@ -495,16 +478,14 @@
 		{
 			"name": "Supprimer_Les_Users",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "DELETE",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJib3NzQGV4YW1wbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTA5ODI3MjksImV4cCI6MTc1MTA2OTEyOX0.SQSW6hVGfq1q_cfEC8KxRB3WJK_pTHcwEmAmbjj5O7w",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmN1c2VyMkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNzI0NDgyLCJleHOjE3NTE4MTA4ODJ9.Jxz4ySYLMltw4Y0crKVW-xvEtBseD-vYGCvttPnn2qY",
 						"type": "text"
 					}
 				],
@@ -513,12 +494,12 @@
 					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_USER\"\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/users",
-					"protocol": "http",
+					"raw": "https://localhost:8443/api/users",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8443",
 					"path": [
 						"api",
 						"users"
