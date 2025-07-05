@@ -57,7 +57,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"email\": \"secure@letsplay.com\",\n  \"password\": \"abcuser2\"\n}",
+					"raw": "{\n  \"email\": \"diouf@letsplay.com\",\n  \"password\": \"diouf123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -332,7 +332,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW91ZkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTcyNDc2MSwiZXhwIjoxNzUxODExMTYxfQ.zfdZBjKGhCOFVIuLvXiWhuHQ5WN_y17ZVsq-Vn-x9Rw",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW91ZkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTcyNzczMCwiZXhwIjoxNzUxODE0MTMwfQ.uzM_tUM6aE3QV8HsMQJnvN18MUVXXWM0J5A4WTemiFQ",
 							"type": "string"
 						}
 					]
@@ -394,6 +394,38 @@
 						"api",
 						"users",
 						"68692cdc559652c8e7cdb9c1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir_User_Mail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW91ZkBsZXRzcGxheS5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTcyNzczMCwiZXhwIjoxNzUxODE0MTMwfQ.uzM_tUM6aE3QV8HsMQJnvN18MUVXXWM0J5A4WTemiFQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/email/diouf@letsplay.com",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"email",
+						"diouf@letsplay.com"
 					]
 				}
 			},
